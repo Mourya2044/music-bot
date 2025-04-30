@@ -161,3 +161,15 @@ player.events.on('connectionError', (queue, error) => {
 client.login(process.env.DISCORD_TOKEN)
   .then(setupPlayer)
   .catch(console.error);
+
+import express from 'express';
+
+const app = express();
+const PORT = process.env.PORT || 3000;
+
+app.listen(PORT, () => {
+  console.log(`Server is running on port ${PORT}`);
+});
+app.get('/', (req, res) => {
+  res.send('Discord Music Bot is running!');
+});
